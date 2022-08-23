@@ -35,8 +35,8 @@ public class Address implements Serializable {
   @Column(name = "rid", unique = true)
   private String rid;
 
-  @Column(name = "userId", unique = true)
-  private String userId;
+  @Column(name = "ownerId", unique = true, nullable = false)
+  private String ownerId;
 
   @Column(name = "address1")
   private String address1;

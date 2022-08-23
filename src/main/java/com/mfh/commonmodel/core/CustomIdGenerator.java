@@ -15,7 +15,7 @@ import org.hibernate.type.Type;
 public class CustomIdGenerator extends SequenceStyleGenerator {
 
   public static final String ENTITY_PREFIX = "Entity";
-  public static final String CLASS_REFERENCE = "com.tkr.userservice.core.CustomIdGenerator";
+  public static final String CLASS_REFERENCE = "com.mfh.commonmodel.core.CustomIdGenerator";
   private String entityPrefix;
 
   @Override
