@@ -5,14 +5,14 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.3</version>
+    <version>2.7.2</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.mfh</groupId>
   <artifactId>common-model</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>common-model</name>
-  <description>Demo project for Spring Boot</description>
+  <description>Multi purpose service oriented project</description>
   <properties>
     <java.version>17</java.version>
   </properties>
@@ -50,6 +50,14 @@
               <artifactId>lombok</artifactId>
             </exclude>
           </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <!--        <version>2.22.2</version>-->
+        <configuration>
+          <testFailureIgnore>true</testFailureIgnore>
         </configuration>
       </plugin>
     </plugins>
