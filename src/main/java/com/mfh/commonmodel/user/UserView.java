@@ -22,6 +22,8 @@ import org.hibernate.annotations.Immutable;
 @ToString(of = "userName")
 public class UserView implements Serializable {
 
+  public static final String PROP_SECTION_RID = "sectionRid";
+
   @Serial
   private static final long serialVersionUID = 2482050672031091709L;
 
@@ -48,6 +50,9 @@ public class UserView implements Serializable {
 
   @Column(name = "deleted", nullable = false)
   private boolean deleted;
+
+  @Column(name = "sectionRid", nullable = false)
+  private String sectionRid;
 
   @Column(name = "sectionName", nullable = false)
   private String sectionName;

@@ -8,12 +8,15 @@ where
 
 	create view v_user as
 select
+    usr.rid as rid,
 	usr.first_name as first_name,
 	usr.last_name as last_name,
 	usr.user_name as user_name,
+	usr.age as age,
 	email as email,
 	usr.active,
 	usr.deleted,
+	sec.rid as section_rid,
 	sec.name as section_name
 
 		from t_user usr
