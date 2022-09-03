@@ -42,6 +42,12 @@ public class Section implements Serializable {
   @Column(name = "name", nullable = false)
   private String name;
 
+  @Column(name = "active", nullable = false)
+  private boolean active;
+
+  @Column(name = "deleted", nullable = false)
+  private boolean deleted;
+
   @ManyToOne
   @JoinColumn(name = "storeId", nullable = false)
   private Store store;

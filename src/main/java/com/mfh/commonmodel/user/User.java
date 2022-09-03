@@ -9,6 +9,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -18,27 +20,19 @@ import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mfh.commonmodel.core.CustomIdGenerator;
+import com.mfh.commonmodel.section.Section;
 
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "tUser")
-@ToString(of = "displayName")
+@ToString(of = "userName")
 public class User implements Serializable {
 
-  // https://dzone.com/articles/javas-serial-annotation
   @Serial
   private static final long serialVersionUID = 2482050672031091709L;
-
-  public static final String PROP_RID = "rid";
-  public static final String PROP_DELETED = "deleted";
-  public static final String PROP_CREATED_TIME = "createdOn";
-  public static final String PROP_EMAIL = "email";
-  public static final String PROP_DISPLAY_NAME = "displayName";
-  public static final String PROP_GENDER = "gender";
-  public static final String PROP_AGE = "age";
-  public static final String PROP_ROLES = "roles";
 
   @Id
   @GeneratedValue(generator = "userIdGenerator", strategy = GenerationType.SEQUENCE)
@@ -57,14 +51,12 @@ public class User implements Serializable {
   @Column(name = "lastName")
   private String lastName;
 
-  @Column(name = "displayName", nullable = false)
-  private String displayName;
+  @Column(name = "userName", nullable = false)
+  private String userName;
 
   @Column(name = "email", nullable = false)
   private String email;
 
-  @Column(name = "imageId")
-  private String imageId;
   //  https://stackoverflow.com/questions/2069541/postgresql-jdbc-and-streaming-blobs
 
   //  @Enumerated(EnumType.STRING)
@@ -77,12 +69,14 @@ public class User implements Serializable {
   @Column(name = "age")
   private Byte age;
 
-  @Column(name = "addressId")
-  private String addressId;
-
   @Column(name = "active")
   private boolean active;
 
   @Column(name = "deleted", nullable = false)
   private boolean deleted;
+
+  @JsonIgnore
+  @ManyToOne
+  @JoinColumn(name = "sectionId", nullable = false)
+  private Section section;
 }
