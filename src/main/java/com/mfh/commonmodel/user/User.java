@@ -2,15 +2,22 @@ package com.mfh.commonmodel.user;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -21,6 +28,7 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mfh.commonmodel.account.Account;
 import com.mfh.commonmodel.core.CustomIdGenerator;
 import com.mfh.commonmodel.section.Section;
 
@@ -79,4 +87,14 @@ public class User implements Serializable {
   @ManyToOne
   @JoinColumn(name = "sectionId", nullable = false)
   private Section section;
+
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "account", referencedColumnName = "rid")
+  private Account account;
+
+  @ManyToMany(fetch = FetchType.LAZY)
+  @JoinTable(name = "tUser_roles",
+      joinColumns = {@JoinColumn(name = "userId")},
+      inverseJoinColumns = {@JoinColumn(name = "roleId")})
+  private Set<Role> roles = new HashSet<>();
 }

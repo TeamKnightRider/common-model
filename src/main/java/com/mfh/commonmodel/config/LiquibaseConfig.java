@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import liquibase.integration.spring.SpringLiquibase;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
@@ -15,6 +16,9 @@ import org.springframework.context.annotation.Configuration;
 public class LiquibaseConfig {
   @Autowired
   private DataSource dataSource;
+
+  @Value("${spring.liquibase.enabled}")
+  private boolean liquibaseEnabled;
 
   @Bean
   public LiquibaseProperties liquibaseProperties() {
@@ -31,7 +35,7 @@ public class LiquibaseConfig {
     liquibase.setDataSource(getDataSource(liquibaseProperties));
     liquibase.setDefaultSchema(liquibaseProperties.getDefaultSchema());
     liquibase.setDropFirst(liquibaseProperties.isDropFirst());
-    liquibase.setShouldRun(true);
+    liquibase.setShouldRun(liquibaseEnabled);
     liquibase.setLabels(liquibaseProperties.getLabels());
     liquibase.setChangeLogParameters(liquibaseProperties.getParameters());
     return liquibase;
