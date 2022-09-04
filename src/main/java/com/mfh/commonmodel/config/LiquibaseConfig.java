@@ -17,7 +17,7 @@ public class LiquibaseConfig {
   @Autowired
   private DataSource dataSource;
 
-  @Value("${spring.liquibase.enabled}")
+  @Value("${mfh.liquibase.run}")
   private boolean liquibaseEnabled;
 
   @Bean
