@@ -13,7 +13,7 @@
     <sqlFile path="${basedir}/schema/2022/0/0/1/sql/4__create_role_view.sql" splitStatements="false"/>
     <sqlFile path="${basedir}/schema/2022/0/0/1/sql/5__create_authority_view.sql" splitStatements="false"/>
     <comment>
-      create user view
+      create views
     </comment>
   </changeSet>
 

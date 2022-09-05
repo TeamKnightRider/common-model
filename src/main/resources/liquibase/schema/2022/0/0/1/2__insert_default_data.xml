@@ -6,10 +6,12 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <!-- Properties -->
-  <property name="baseDir" value="liquibase"/>
+  <changeSet id="2" author="mfh">
+    <!--    <sqlFile path="${basedir}/schema/2022/0/0/1/sql/1__create_user_view.sql" splitStatements="false"/>-->
+    <comment>
+      insert default data
+    </comment>
+  </changeSet>
 
-  <!-- Files Includes -->
-  <include file="${basedir}/schema/2022/0/0/1/1__create_views.xml"/>
+
 </databaseChangeLog>
-
