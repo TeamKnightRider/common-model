@@ -57,7 +57,7 @@ public class Account implements Serializable {
   @Column(name = "password", nullable = false)
   private char[] password;
 
-  @Column(name = "active", nullable = false)
+  @Column(name = "active", nullable = false, columnDefinition = "bool default true")
   private boolean active;
 
   @Column(name = "locked", nullable = false, columnDefinition = "bool default false")

@@ -10,6 +10,16 @@
   <property name="baseDir" value="liquibase"/>
 
   <!-- Files Includes -->
-  <include file="${basedir}/schema/2022/0/0/1/1__create_views.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/1__create_user_view.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/2__create_store_view.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/3__create_section_view.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/4__create_role_view.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/5__create_authority_view.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/6__insert_default_store.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/7__insert_default_section.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/8__insert_default_roles.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/9__insert_default_authorities.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/10__insert_default_roles_authority_mapping.xml"/>
+  <include file="${basedir}/schema/2022/0/0/1/11__insert_default_user.xml"/>
 </databaseChangeLog>
 

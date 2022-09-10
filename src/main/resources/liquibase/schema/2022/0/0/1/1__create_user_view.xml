@@ -8,12 +8,8 @@
 
   <changeSet id="1" author="mfh">
     <sqlFile path="${basedir}/schema/2022/0/0/1/views/1__create_user_view.sql" splitStatements="false"/>
-    <sqlFile path="${basedir}/schema/2022/0/0/1/views/2__create_store_view.sql" splitStatements="false"/>
-    <sqlFile path="${basedir}/schema/2022/0/0/1/views/3__create_section_view.sql" splitStatements="false"/>
-    <sqlFile path="${basedir}/schema/2022/0/0/1/views/4__create_role_view.sql" splitStatements="false"/>
-    <sqlFile path="${basedir}/schema/2022/0/0/1/views/5__create_authority_view.sql" splitStatements="false"/>
     <comment>
-      create views
+      1__create_user_view
     </comment>
   </changeSet>
 

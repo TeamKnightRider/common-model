@@ -18,7 +18,7 @@ select
 from
 	information_schema.tables
 where
-	table_name = 't_section')
+	table_name = 't_store')
 
 then create view v_user as
 select
@@ -30,12 +30,12 @@ select
 	email as email,
 	usr.active,
 	usr.deleted,
-	sec.rid as section_rid,
-	sec.name as section_name
+	store.rid as store_rid,
+	store.name as store_name
 from
 	t_user usr
-inner join t_section sec on
-	usr.section_id = sec.rid;
+inner join t_store store on
+	usr.store_id = store.rid;
 
 
 end if;

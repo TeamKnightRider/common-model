@@ -55,6 +55,9 @@ public class Role implements Serializable {
   @Column(name = "name", nullable = false)
   private String name;
 
+  @Column(name = "sectionId", nullable = false)
+  private String sectionId;
+
   @Column(name = "active", nullable = false, columnDefinition = "bool default true")
   private boolean active;
 

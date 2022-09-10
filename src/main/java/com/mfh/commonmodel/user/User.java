@@ -2,6 +2,7 @@ package com.mfh.commonmodel.user;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,7 +30,7 @@ import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mfh.commonmodel.core.CustomIdGenerator;
-import com.mfh.commonmodel.section.Section;
+import com.mfh.commonmodel.store.Store;
 import com.mfh.commonmodel.user.account.Account;
 
 @Data
@@ -65,6 +66,8 @@ public class User implements Serializable {
   @Column(name = "email", nullable = false)
   private String email;
 
+  @Column(name = "createdOn", nullable = false)
+  private LocalDateTime createdOn;
   //  https://stackoverflow.com/questions/2069541/postgresql-jdbc-and-streaming-blobs
 
   //  @Enumerated(EnumType.STRING)
@@ -85,8 +88,8 @@ public class User implements Serializable {
 
   @JsonIgnore
   @ManyToOne
-  @JoinColumn(name = "sectionId", nullable = false)
-  private Section section;
+  @JoinColumn(name = "storeId", nullable = false)
+  private Store store;
 
   @OneToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "account", referencedColumnName = "rid")

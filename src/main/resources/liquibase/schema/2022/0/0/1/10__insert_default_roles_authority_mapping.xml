@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="10" author="mfh">
+    <sqlFile path="${basedir}/schema/2022/0/0/1/dml/5__insert_default_roles_authority_mapping.sql"
+             splitStatements="false"/>
+    <comment>
+      5__insert_default_roles_authority_mapping
+    </comment>
+  </changeSet>
+
+
+</databaseChangeLog>
