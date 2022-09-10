@@ -55,10 +55,10 @@ public class Unit implements Serializable {
   @Column(name = "conversionRate", nullable = false)
   private double conversionRate;
 
-  @Column(name = "active", nullable = false)
+  @Column(name = "active", nullable = false, columnDefinition = "bool default true")
   private boolean active;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 
   @Column(name = "unitGroupId", nullable = false)

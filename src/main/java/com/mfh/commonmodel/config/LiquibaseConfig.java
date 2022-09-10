@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.liquibase.LiquibaseProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 //@Lazy
 @Configuration
@@ -25,9 +26,10 @@ public class LiquibaseConfig {
     return new LiquibaseProperties();
   }
 
+  //https://stackoverflow.com/questions/71435171/error-creating-bean-with-name-liquibase-defined-in-class-path-resourcecircula
   @Bean
-  //  @DependsOn(value = "entityManagerFactory")
-  public SpringLiquibase liquibase() {
+  @DependsOn(value = "entityManagerFactory")
+  public CustomSpringLiquibase liquibase() {
     LiquibaseProperties liquibaseProperties = liquibaseProperties();
     SpringLiquibase liquibase = new SpringLiquibase();
     liquibase.setChangeLog(liquibaseProperties.getChangeLog());
@@ -38,7 +40,7 @@ public class LiquibaseConfig {
     liquibase.setShouldRun(liquibaseEnabled);
     liquibase.setLabels(liquibaseProperties.getLabels());
     liquibase.setChangeLogParameters(liquibaseProperties.getParameters());
-    return liquibase;
+    return new CustomSpringLiquibase(liquibase);
   }
 
   private DataSource getDataSource(LiquibaseProperties liquibaseProperties) {

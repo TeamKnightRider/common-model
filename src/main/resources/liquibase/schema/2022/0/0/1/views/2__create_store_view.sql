@@ -1,3 +1,15 @@
+do 
+$do$
+begin 
+if exists ( select
+	*
+from
+	information_schema.tables
+where
+	table_name = N't_store')
+
+then 
+
 create or replace
 view v_store as
 select
@@ -7,3 +19,6 @@ select
 	store.deleted
 from
 	t_store store;
+
+end if;
+end $do$

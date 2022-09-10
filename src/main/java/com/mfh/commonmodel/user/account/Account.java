@@ -1,4 +1,4 @@
-package com.mfh.commonmodel.account;
+package com.mfh.commonmodel.user.account;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -29,6 +29,8 @@ public class Account implements Serializable {
 
   @Serial
   private static final long serialVersionUID = -4682557759360150675L;
+
+  public static final String PROP_ACCOUNT_NAME = "accountName";
   @Id
   @GeneratedValue(generator = "customGenerator", strategy = GenerationType.SEQUENCE)
   @GenericGenerator(name = "customGenerator",
@@ -58,15 +60,15 @@ public class Account implements Serializable {
   @Column(name = "active", nullable = false)
   private boolean active;
 
-  @Column(name = "locked", nullable = false)
+  @Column(name = "locked", nullable = false, columnDefinition = "bool default false")
   private boolean locked;
 
-  @Column(name = "expired", nullable = false)
+  @Column(name = "expired", nullable = false, columnDefinition = "bool default false")
   private boolean expired;
 
-  @Column(name = "credentialExpired", nullable = false)
+  @Column(name = "credentialExpired", nullable = false, columnDefinition = "bool default true")
   private boolean credentialExpired;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 }

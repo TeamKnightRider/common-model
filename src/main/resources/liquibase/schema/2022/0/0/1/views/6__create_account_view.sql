@@ -1,3 +1,15 @@
+do 
+$do$
+begin 
+if exists ( select
+	*
+from
+	information_schema.tables
+where
+	table_name = N't_account')
+
+then 
+
 create or replace
 view v_account as
 select
@@ -13,3 +25,8 @@ select
 	acc.deleted
 from
 	t_account acc;
+
+
+
+end if;
+end $do$

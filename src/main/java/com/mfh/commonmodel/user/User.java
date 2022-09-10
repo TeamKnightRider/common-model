@@ -28,9 +28,9 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mfh.commonmodel.account.Account;
 import com.mfh.commonmodel.core.CustomIdGenerator;
 import com.mfh.commonmodel.section.Section;
+import com.mfh.commonmodel.user.account.Account;
 
 @Data
 @NoArgsConstructor
@@ -77,10 +77,10 @@ public class User implements Serializable {
   @Column(name = "age")
   private Byte age;
 
-  @Column(name = "active")
+  @Column(name = "active", columnDefinition = "bool default true")
   private boolean active;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 
   @JsonIgnore

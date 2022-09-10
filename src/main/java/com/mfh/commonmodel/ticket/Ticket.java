@@ -101,22 +101,22 @@ public class Ticket implements Serializable {
   @Column(name = "status", nullable = false)
   private String status;
 
-  @Column(name = "paid", nullable = false)
+  @Column(name = "paid", nullable = false, columnDefinition = "bool default false")
   private boolean paid;
 
-  @Column(name = "voided", nullable = false)
+  @Column(name = "voided", nullable = false, columnDefinition = "bool default false")
   private boolean voided;
 
-  @Column(name = "refunded", nullable = false)
+  @Column(name = "refunded", nullable = false, columnDefinition = "bool default false")
   private boolean refunded;
 
-  @Column(name = "closed", nullable = false)
+  @Column(name = "closed", nullable = false, columnDefinition = "bool default false")
   private boolean closed;
 
   @Column(name = "note")
   private String note;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 
   @Column(name = "taxGroupId", nullable = false)

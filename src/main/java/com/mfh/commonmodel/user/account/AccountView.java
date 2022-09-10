@@ -1,4 +1,4 @@
-package com.mfh.commonmodel.account;
+package com.mfh.commonmodel.user.account;
 
 import java.io.Serial;
 import java.io.Serializable;

@@ -46,6 +46,6 @@ public class Store implements Serializable {
   @Column(name = "createdOn", nullable = false)
   private LocalDateTime createdOn;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 }

@@ -20,7 +20,7 @@ public class MySchemaFilter implements SchemaFilter {
   @Override
   public boolean includeTable(Table table) {
     return Arrays.stream(viewTables)
-        .anyMatch(s -> s.equals(table.getName()));
+        .noneMatch(s -> s.equals(table.getName()));
   }
 
   @Override

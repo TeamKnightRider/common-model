@@ -1,3 +1,15 @@
+do 
+$do$
+begin 
+if exists ( select
+	*
+from
+	information_schema.tables
+where
+	table_name = N't_section')
+
+then 
+
 create or replace
 view v_section as
 select
@@ -8,3 +20,7 @@ select
 	sec.deleted
 from
 	t_section sec;
+
+
+end if;
+end $do$

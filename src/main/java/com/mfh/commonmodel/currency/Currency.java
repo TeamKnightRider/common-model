@@ -53,9 +53,9 @@ public class Currency implements Serializable {
   @JoinColumn(name = "storeId", nullable = false)
   private Store store;
 
-  @Column(name = "active", nullable = false)
+  @Column(name = "active", nullable = false, columnDefinition = "bool default true")
   private boolean active;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 }

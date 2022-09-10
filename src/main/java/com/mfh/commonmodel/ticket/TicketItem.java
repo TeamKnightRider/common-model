@@ -90,10 +90,10 @@ public class TicketItem implements Serializable {
   @Column(name = "cookingInstructions")
   private String cookingInstructions;
 
-  @Column(name = "deleted", nullable = false)
+  @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
   private boolean deleted;
 
-  @Column(name = "voided", nullable = false)
+  @Column(name = "voided", nullable = false, columnDefinition = "bool default false")
   private boolean voided;
 
   @Column(name = "taxGroupId")
