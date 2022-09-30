@@ -51,9 +51,9 @@ public class UserView implements Serializable {
   @Column(name = "deleted", nullable = false)
   private boolean deleted;
 
-  @Column(name = "sectionRid", nullable = false)
-  private String sectionRid;
+  @Column(name = "storeRid", nullable = false)
+  private String storeRid;
 
-  @Column(name = "sectionName", nullable = false)
-  private String sectionName;
+  @Column(name = "storeName", nullable = false)
+  private String storeName;
 }
