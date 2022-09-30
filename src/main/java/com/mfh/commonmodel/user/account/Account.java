@@ -66,7 +66,7 @@ public class Account implements Serializable {
   @Column(name = "expired", nullable = false, columnDefinition = "bool default false")
   private boolean expired;
 
-  @Column(name = "credentialExpired", nullable = false, columnDefinition = "bool default true")
+  @Column(name = "credentialExpired", nullable = false, columnDefinition = "bool default false")
   private boolean credentialExpired;
 
   @Column(name = "deleted", nullable = false, columnDefinition = "bool default false")
